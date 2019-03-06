@@ -5,5 +5,5 @@ end_link = "/wiki/Marlon_Wayans"
 
 links_on_page = getAllUrl(start_link)
 
-for i in links_on_page:
-    print(i)
+if end_link in links_on_page:
+    print("Found Website")
