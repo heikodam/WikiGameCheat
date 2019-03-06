@@ -11,16 +11,17 @@ mydb = mysql.connector.connect(
 my_cursor = mydb.cursor()
 
 
+
 ll, dll = getAllUrl("/wiki/Germany")
 
-
+print(my_cursor.execute("SELECT link FROM wiki_sample.wiki_page"))
 
 #my_cursor.execute("CREATE DATABASE testdb")
 
-# my_cursor.execute("SHOW DATABASES")
+#my_cursor.execute("SHOW DATABASES")
 
-# for db in my_cursor:
-#     print(db)
+#for db in my_cursor:
+ #   print(db)
 
 #my_cursor.execute("CREATE TABLE users (name VARCHAR(255), email VARCHAR(255), age INTEGER(3), user_id INTEGER AUTO_INCREMENT PRIMARY KEY)")
 

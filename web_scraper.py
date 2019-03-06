@@ -28,9 +28,16 @@ def getAllUrl(urls):
                 linklist.append(link)           
         elif (link[:5] == '/wiki') and link.find(":"):
             differentlinklist.append(link)
-    return linklist, differentlinklist
+    return linklist
 
-# ll, dll = getAllUrl("/wiki/Germany")
+#go into first link
+#get all links from that link
+#add all links that are not yet in the database to the database
+#connect those pages with the known liked pages
+#go to second page
+
+
+# ll, dll = getAllUrl("/wiki/Main_Page")
 
 
 # for i in ll:
@@ -39,4 +46,4 @@ def getAllUrl(urls):
 # if "/wiki/Sochi" in ll:
 #     print("Found Sochi")
 
-#print(len(ll))
+# print(len(ll))
