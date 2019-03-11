@@ -9,8 +9,7 @@ def getAllUrl(urls):
     res = requests.get(url)
     soup = BeautifulSoup(res.text, 'html.parser')
 
-    linklist = []
-    differentlinklist = []
+    linklist = set()
 
     for link in soup.find_all("a", href=True):
 
@@ -22,28 +21,8 @@ def getAllUrl(urls):
 
         #filter only wiki links and no general wiki pages ':'
         if (link[:5] == '/wiki') and link.find(":") == -1:
+            #remove all hashes and on page links
             if link.find('#') != -1:
                 link = link[:link.find('#')]
-            if link not in linklist and link != urls:
-                linklist.append(link)           
-        elif (link[:5] == '/wiki') and link.find(":"):
-            differentlinklist.append(link)
+            linklist.add(link)
     return linklist
-
-#go into first link
-#get all links from that link
-#add all links that are not yet in the database to the database
-#connect those pages with the known liked pages
-#go to second page
-
-
-# ll, dll = getAllUrl("/wiki/Main_Page")
-
-
-# for i in ll:
-#     print(i)
-
-# if "/wiki/Sochi" in ll:
-#     print("Found Sochi")
-
-# print(len(ll))
