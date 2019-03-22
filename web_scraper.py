@@ -26,3 +26,4 @@ def getAllUrl(urls):
                 link = link[:link.find('#')]
             linklist.add(link)
     return linklist
+
