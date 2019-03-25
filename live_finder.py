@@ -9,10 +9,10 @@ def is_link_in_page(page_to_check, end_link):
         return False
 
 
-start_link = "/wiki/By-product"
+start_link = "/wiki/Flour"
 link = start_link
 end_link = "/wiki/Flour"
-path = [start_link]
+path = [[start_link]]
 
 links_on_start_page = web_scraper.getAllUrl(start_link)
 
@@ -28,9 +28,26 @@ def get_all_degree_links(degree, start_degree_pages):
 
 degree_count = 0
 while True:
-    if end_link in get_all_degree_links(degree_count, start_link):
-        print("They are {} clicks away".format(degree_count))
+    path.append(get_all_degree_links(degree_count, start_link[degree_count]))
+    if end_link in path[degree_count]):
+        print("They are {} clicks away".format(degree_count + 1))
     degree_count += 1
+
+
+# def get_all_degree_links(degree, start_degree_pages):
+#     current_degree_pages = []
+#     if degree == 0:
+#         return start_degree_pages
+#     for page in start_degree_pages:
+#         current_degree_pages += web_scraper.getAllUrl(page)
+#     return get_all_degree_links(degree - 1, current_degree_pages)
+
+
+# degree_count = 0
+# while True:
+#     if end_link in get_all_degree_links(degree_count, start_link):
+#         print("They are {} clicks away".format(degree_count))
+#     degree_count += 1
         
     
     

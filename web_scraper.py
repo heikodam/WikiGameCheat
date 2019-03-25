@@ -12,7 +12,6 @@ def getAllUrl(urls):
     linklist = set()
 
     for link in soup.find_all("a", href=True):
-
         #cut a tag down to link
         link = str(link)
         linkstart = link.find('href="') + 6
